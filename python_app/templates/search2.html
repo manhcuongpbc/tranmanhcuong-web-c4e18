@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fuck u</title>
+</head>
+<body>
+    <h1>Messi is the best</h1>
+    {%for service in all_service%}
+        <div>
+            {%if service.gender == 0%}
+            <img src="../static/image/female-profile.jpg" alt="">
+            {%else%}
+            <img src="../static/image/male-profile.jpg" alt="">
+            {%endif%}
+            <p>Ten: {{service.name}}</p>
+            <p>Gioi tinh: {{service.gender}}</p>
+            <p>chieu cao: {{service.height}}</p>
+            <p>nam sinh: {{service.yob}}</p>
+            <p>dia chi: {{service.address}}</p>
+            <a href="{{url_for('detail',service_id = service.id)}}">Tim hieu them</a>
+            <br>
+        </div>
+    {%endfor%}
+</body>
+</html>

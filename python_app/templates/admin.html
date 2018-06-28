@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assmin</title>
+</head>
+<body>
+    <h1>admin</h1>
+    <table border="1px">
+        <thead>
+            <th>STT</th>
+            <th>Ten</th>
+            <th>yob</th>
+            <th>Giới tính</th>
+            <th>Chiều cao</th>
+            <th>SĐT</th>
+            <th>Địa chỉ</th>
+            <th>Trạng thái</th>
+            <th>Sửa</th>
+        </thead>
+        <tbody>
+            {%for service in all_service%}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{service.name}}</td>
+                    <td>{{service.yob}}</td>
+                    <td>{{"Nữ" if service.gender == 0 else "Nam"}}</td>
+                    <td>{{service.height}}</td>
+                    <td>{{service.phone}}</td>
+                    <td>{{service.address}}</td>
+                    <td>{{"Bận" if service.status == False else "Rảnh" }}</td>
+                    <td><a href="{{ url_for('update', service_id=service_id)}}">sua</a> <a href="{{url_for('delete',service_id = service.id)}}">xoa</a></td>
+                </tr>
+            {%endfor%}
+        </tbody>
+        <caption>Bang gia service</caption>
+
+    </table>
+</body>
+</html>
